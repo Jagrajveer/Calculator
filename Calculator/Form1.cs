@@ -69,6 +69,17 @@ namespace Calculator {
                     textBox1.Text = "0";
                 }
             }
+
+            if((int)e.KeyChar == 61) {
+                if (displayType == "DEC") {
+                    if (storedOperation != "" && storedOperand != "") {
+                        storedOperand = Calculate(storedOperand, storedOperation, textBox1.Text);
+                        textBox1.Text = storedOperand;
+                        storedOperation = "";
+                        label1.Text = $"{storedOperand} {storedOperation}";
+                    }
+                }
+            }
         }
 
         private void Operation(object sender, EventArgs e) {
